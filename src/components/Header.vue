@@ -23,7 +23,7 @@ export default {
   },
   methods: {
     searchFilm(){
-      this.$emit('foundFilm', this.filmToSearch)
+      this.$emit('movieFound', this.filmToSearch)
     }
   }
 }

@@ -1,6 +1,6 @@
 <template>
   <div>
-    <Header @foundFilm="foundFilm" />
+    <Header @movieFound="movieFound" />
     <Main :films="films" />
   </div>
   
@@ -25,7 +25,7 @@ export default {
     }
   },
   methods:{
-    foundFilm(input){
+    movieFound(input){
       axios.get(`${this.apiURL}api_key=${this.apiKey}&query=${input}&language=it-IT`)
         .then((response) =>{
           this.films = response.data.results;
