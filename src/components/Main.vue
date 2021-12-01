@@ -1,62 +1,47 @@
 <template>
-  <div class="main-background">
-    <div class="container cards-container">
-        <Cards />
+  <main>
+    <div v-for="film in films" :key="film.id" class="container">
+      <ul>
+        <li>Titolo: {{film.title}}</li>
+        <li>Titolo originale: {{film.original_title}}</li>
+        <li>Lingua originale{{film.original_language}}</li>
+        <li>Voto: {{film.vote_average}}</li>
+      </ul>
     </div>
-  </div>
+  </main>
 </template>
 
 <script>
 
-import axios from "axios";
-import Cards from './Cards.vue';
-
-
 export default {
   name: "Main",
-  components: {
-    Cards,
-  },
-  data(){
-    return{
-      Cards: [],
-      apiUrl: "https://api.themoviedb.org/3/search/movie?"
+  data() {
+    return {
+
     }
   },
-  // props: {
-    
-  // },
-  // computed: {
-    
-  // },
-  methods:{
-    getApi(){
-      axios.get(this.apiUrl)
-        .then( r => {
-          this.cards = r.data;
-        })
-        .catch( e => {
-          console.log(e);
-        })
-    },
+  props: {
+    films: Array,
   },
-    mounted(){
-    this.getApi();
-  }
 }
+
 </script>
 
 <style lang="scss">
   @import "../assets/style/vars.scss";
 
-  .main-background {
+  main {
     min-height: calc(100vh - 60px);
     background-color: grey;
     color: white;
-    .cards-container {
+    .container {
       display: flex;
       flex-wrap: wrap;
+      width: 300px;
       padding-top: 50px;
+    }
+    ul {
+      color: white;
     }
   }
 

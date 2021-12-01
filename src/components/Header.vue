@@ -1,14 +1,12 @@
 <template>
   <header>
     <div class="logo-boolflix">
-      boolflix 
+      <h1>boolflix</h1>
     </div>
 
     <div class="search-container">
-    <form action="/action_page.php">
-      <input type="text" placeholder="Cerca.." name="search">
-      <button type="submit">Cerca</button>
-    </form>
+      <input v-model="filmToSearch" @keyup.enter="searchFilm" type="text" placeholder="Cerca.." name="search">
+      <button @click="searchFilm" type="submit">Cerca</button>
   </div>
   </header>
 </template>
@@ -17,14 +15,17 @@
 
 export default {
   name: "Header",
-  props: {
-
-  },
+  
   data(){
     return {
-      
+      filmToSearch: '',
     }
   },
+  methods: {
+    searchFilm(){
+      this.$emit('foundFilm', this.filmToSearch)
+    }
+  }
 }
 </script>
 
@@ -40,15 +41,10 @@ export default {
     .logo-boolflix {
       color: red;
       text-transform: uppercase;
-      font-size: 40px;
+      font-size: 20px;
       margin-left: 15px;
       cursor: pointer;
     }
-    // img {
-    //   width: 100%;
-    //   margin-left: 15px;
-    //   cursor: pointer;
-    // }
     .search-container {
       margin-right: 15px;
     }
