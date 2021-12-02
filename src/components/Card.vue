@@ -8,6 +8,13 @@
         <div class="flip-card-back">
           <ul>
             <li>
+              <strong>Titolo: </strong>
+              <p v-if="title">
+                {{title}}
+              </p>
+              <p v-else>{{name}}</p>
+            </li>
+            <li>
               <strong>Titolo originale: </strong>
               <p v-if="originalTitle">
                 {{originalTitle}}
@@ -25,13 +32,6 @@
                 v-else-if="originalLanguage == 'en'"
               >
               <p v-else>{{originalLanguage}}</p>
-            </li>
-            <li>
-              <strong>Titolo: </strong>
-              <p v-if="title">
-                {{title}}
-              </p>
-              <p v-else>{{name}}</p>
             </li>
           </ul>
         </div>
