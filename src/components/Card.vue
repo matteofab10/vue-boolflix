@@ -99,7 +99,8 @@ export default {
     padding: 10px 0;
     li {
       list-style: none;
-      padding-bottom: 20px;
+      padding-bottom: 10px;
+      margin-left: 5px;
       img.language-flag {
         width: 30px;
         vertical-align: middle;
