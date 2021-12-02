@@ -1,7 +1,7 @@
 <template>
   <div>
     <Header @movieFound="movieFound" />
-    <Main :films="films" :series="series" />
+    <Main :films="films" :tvSeries="tvSeries" />
   </div>
   
 </template>
@@ -20,9 +20,9 @@ export default {
   data(){
     return{
       films: [],
-      series: [],
+      tvSeries: [],
       apiUrlFilm: 'https://api.themoviedb.org/3/search/movie?',
-      apiUrlSeries: 'https://api.themoviedb.org/3/search/tv?',
+      apiUrltvSeries: 'https://api.themoviedb.org/3/search/tv?',
       apiParams: {
         api_key: '6c09bd2152ffacc0fcf183bbf3e46424',
         language: 'it-IT',
@@ -43,10 +43,10 @@ export default {
           console.log(error);
         })
 
-      axios.get(this.apiUrlSeries, {params: this.apiParams})
+      axios.get(this.apiUrltvSeries, {params: this.apiParams})
         .then((response) =>{
-          this.series = response.data.results;
-          console.log(this.series);
+          this.tvSeries = response.data.results;
+          console.log(this.tvSeries);
         })
         .catch((error) =>{
           console.log(error);

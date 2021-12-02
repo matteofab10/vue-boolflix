@@ -6,14 +6,37 @@
             <img :src="image" :alt="title">
         </div>
         <div class="flip-card-back">
-          <p>{{title}}</p> 
-          <p>{{originalTitle}}</p>
-          <p>{{originalLanguage}}</p>
-          <p>{{voteAverage}}</p>
+          <ul>
+            <li>
+              <strong>Titolo originale: </strong>
+              <p v-if="originalTitle">
+                {{originalTitle}}
+              </p>
+              <p v-else>{{originalName}}</p>
+            </li>
+            <li>
+              <strong>Lingua originale: </strong>
+              <img class="language-flag" 
+                src="../assets/img/it.png" alt="italian-flag"
+                v-if="originalLanguage == 'it'"
+              >
+              <img class="language-flag" 
+                src="../assets/img/en.png" alt="uk-flag"
+                v-else-if="originalLanguage == 'en'"
+              >
+              <p v-else>{{originalLanguage}}</p>
+            </li>
+            <li>
+              <strong>Titolo: </strong>
+              <p v-if="title">
+                {{title}}
+              </p>
+              <p v-else>{{name}}</p>
+            </li>
+          </ul>
         </div>
       </div>
     </div>
-  
 </template>
 
 <script>
@@ -44,7 +67,6 @@ export default {
   position: relative;
   width: 100%;
   height: 100%;
-  text-align: center;
   transition: transform 1.5s;
   transform-style: preserve-3d;
 }
@@ -73,13 +95,19 @@ export default {
   color: white;
   transform: rotateY(180deg);
   border-radius: 10px;
-  p {
-    display: flex;
-    justify-content: center;
-    align-content: center;
-    align-items: center;
-    padding-top: 10px;
-    margin-top: 20px;
+  ul {
+    padding: 10px 0;
+    li {
+      list-style: none;
+      padding-bottom: 20px;
+      img.language-flag {
+        width: 30px;
+        vertical-align: middle;
+      }
+      p {
+        display: inline-block;
+      }
+    }
   }
 }
 
