@@ -21,12 +21,18 @@ export default {
     return{
       films: [],
       apiURL: 'https://api.themoviedb.org/3/search/movie?',
-      apiKey: '6c09bd2152ffacc0fcf183bbf3e46424',
+      apiParams: {
+        api_key: '6c09bd2152ffacc0fcf183bbf3e46424',
+        language: 'it-IT',
+        query: ''
+      }
     }
   },
   methods:{
     movieFound(input){
-      axios.get(`${this.apiURL}api_key=${this.apiKey}&query=${input}&language=it-IT`)
+      this.apiParams.query = input;
+
+      axios.get(this.apiURL, {params: this.apiParams})
         .then((response) =>{
           this.films = response.data.results;
           console.log(this.films);
