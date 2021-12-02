@@ -4,10 +4,18 @@
       <h1>boolflix</h1>
     </div>
 
-    <div class="search-container">
-      <input v-model="filmToSearch" @keyup.enter="searchFilm" type="text" placeholder="Cerca.." name="search">
-      <button @click="searchFilm" type="submit">Cerca</button>
-  </div>
+    <div class="header-right">
+      <div class="search-container">
+        <input v-model="filmToSearch" @keyup.enter="searchFilm" type="text" placeholder="Cerca.." name="search">
+        <button @click="searchFilm" type="submit">Cerca</button>
+      </div>
+
+      <select v-model="type" class="type-bar" aria-label="Default select example">
+        <option value="all" selected>All</option>
+        <option value="films">Films</option>
+        <option value="series">Series</option>
+      </select>
+    </div>
   </header>
 </template>
 
@@ -47,6 +55,13 @@ export default {
     }
     .search-container {
       margin-right: 15px;
+    }
+    .type-bar {
+      margin-right: 15px;
+    }
+    .header-right {
+      display: flex;
+      justify-content: flex-end;
     }
   }
   
