@@ -10,11 +10,11 @@
         <button @click="searchFilm" type="submit">Cerca</button>
       </div>
 
-      <select v-model="type" class="type-bar" aria-label="Default select example">
+      <!-- <select v-model="type" class="type-bar" aria-label="Default select example">
         <option value="all" selected>All</option>
         <option value="films">Films</option>
         <option value="series">Series</option>
-      </select>
+      </select> -->
     </div>
   </header>
 </template>
