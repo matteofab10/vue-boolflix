@@ -3,8 +3,8 @@
     <div class="flip-card">
       <div class="flip-card-inner">
         <div class="flip-card-front">
-            <img v-if="image" :src="image" :alt="title">
-            <p v-else>PLACEHOLDER</p>
+            <p v-if="image == controller">{{title}}</p>
+            <img v-else :src="image" :alt="title">
         </div>
         <div class="flip-card-back">
           <ul>
@@ -53,7 +53,8 @@ export default {
   },
   data() {
     return {
-      flags: ['it', 'en']
+      flags: ['it', 'en'],
+      controller: 'https://image.tmdb.org/t/p/w342null'
     }
   }
 }
