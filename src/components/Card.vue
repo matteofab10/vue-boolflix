@@ -3,7 +3,8 @@
     <div class="flip-card">
       <div class="flip-card-inner">
         <div class="flip-card-front">
-            <img :src="image" :alt="title">
+            <img v-if="image" :src="image" :alt="title">
+            <p v-else>PLACEHOLDER</p>
         </div>
         <div class="flip-card-back">
           <ul>
@@ -28,7 +29,11 @@
             </li>
             <li>
               <strong>Voto: </strong>
-              {{voteAverage}}
+                <i 
+                v-for="(item, index) in 5"
+                :key="index"
+                class="fa-star"
+                :class="index < Math.round(voteAverage/2) ? 'fas' : 'far'"></i>
             </li>
           </ul>
         </div>
@@ -106,6 +111,10 @@ export default {
       .flag {
         width: 30px;
         vertical-align: middle;
+      }
+      i {
+        color: yellow;
+        display: inline-block;
       }
       p {
         display: inline-block;
