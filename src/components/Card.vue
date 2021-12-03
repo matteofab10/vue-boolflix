@@ -3,7 +3,9 @@
     <div class="flip-card">
       <div class="flip-card-inner">
         <div class="flip-card-front">
-            <p v-if="image == controller">{{title}}</p>
+            <p v-if="image == controller">
+              <img class="no-img-default" :src="require(`../assets/img/no-image.png`)" alt="no-image">
+            </p>
             <img v-else :src="image" :alt="title">
         </div>
         <div class="flip-card-back">
@@ -96,6 +98,9 @@ export default {
     width: 100%;
     height: 100%;
     border-radius: 10px;
+  }
+  .no-img-default {
+    height: 290px;
   }
 }
 .flip-card-back {
