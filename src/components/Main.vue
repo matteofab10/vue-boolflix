@@ -47,7 +47,7 @@ export default {
 
 </script>
 
-<style lang="scss">
+<style lang="scss" scoped>
   @import "../assets/style/vars.scss";
 
   main {
@@ -63,6 +63,8 @@ export default {
     }
     h2 {
       text-transform: uppercase;
+      margin: 25px 0px 25px 0px;
+      font-size: 50px;
     }
     .container-card {
       margin: 0 20px 10px 0;

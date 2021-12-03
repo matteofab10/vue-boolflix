@@ -1,7 +1,7 @@
 <template>
   <header>
     <div class="logo-boolflix">
-      <h1>boolflix</h1>
+      <img src="../assets/img/boolflix-logo.png" alt="logo-boolflix">
     </div>
 
     <div class="header-right">
@@ -37,7 +37,7 @@ export default {
 }
 </script>
 
-<style lang="scss">
+<style lang="scss" scoped>
   @import "../assets/style/vars.scss";
 
   header {
@@ -52,6 +52,11 @@ export default {
       font-size: 20px;
       margin-left: 15px;
       cursor: pointer;
+      img {
+        width: 150px;
+        height: 100%;
+        vertical-align: middle;
+      }
     }
     .search-container {
       margin-right: 15px;

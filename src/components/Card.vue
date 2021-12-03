@@ -23,15 +23,12 @@
             </li>
             <li>
               <strong>Lingua originale: </strong>
-              <img class="language-flag" 
-                src="../assets/img/it.png" alt="italian-flag"
-                v-if="originalLanguage == 'it'"
-              >
-              <img class="language-flag" 
-                src="../assets/img/en.png" alt="uk-flag"
-                v-else-if="originalLanguage == 'en'"
-              >
+              <img class="flag" v-if="flags.includes(originalLanguage)" :src="require(`../assets/img/${originalLanguage}.png`)" :alt="title">
               <p v-else>{{originalLanguage}}</p>
+            </li>
+            <li>
+              <strong>Voto: </strong>
+              {{voteAverage}}
             </li>
           </ul>
         </div>
@@ -49,10 +46,15 @@ export default {
     originalLanguage: String,
     voteAverage: Number,
   },
+  data() {
+    return {
+      flags: ['it', 'en']
+    }
+  }
 }
 </script>
 
-<style lang="scss">
+<style lang="scss" scoped>
   @import "../assets/style/vars.scss";
 
   .flip-card {
@@ -101,7 +103,7 @@ export default {
       list-style: none;
       padding-bottom: 10px;
       margin-left: 5px;
-      img.language-flag {
+      .flag {
         width: 30px;
         vertical-align: middle;
       }
